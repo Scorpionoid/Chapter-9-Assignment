@@ -1,0 +1,206 @@
+/* Chapter 9 - shared stylesheet for Labs 9.1 and 9.2 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f4f7fc;
+  color: #213047;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 800px;
+  margin: 36px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: #194c83;
+  font-size: 2rem;
+}
+
+/* Lab 9.1: form background, padding, width and right-aligned label column */
+#inquiry,
+#request {
+  max-width: 700px;
+  padding: 28px;
+  background-color: #eaf2fc;
+  border: 1px solid #c8d7eb;
+  border-radius: 12px;
+}
+
+.intro {
+  margin: 0 0 22px;
+}
+
+.form-row {
+  margin: 0 0 17px;
+}
+
+.form-row > label,
+.label-spacer {
+  display: inline-block;
+  width: 205px;
+  margin-right: 14px;
+  vertical-align: top;
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-row > input:not([type="image"]):not([type="range"]):not([type="color"]),
+.form-row > select,
+.form-row > textarea {
+  width: min(100%, 360px);
+  padding: 9px;
+  border: 1px solid #859bb6;
+  border-radius: 5px;
+  background-color: white;
+  color: #213047;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border: 1px solid #9fb5d1;
+  border-radius: 7px;
+}
+
+legend {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.choice-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 7px 0;
+}
+
+/* Radio and checkbox labels sit directly beside their controls. */
+fieldset label {
+  display: inline-block;
+  width: auto;
+  margin-right: 0;
+  text-align: left;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Visible keyboard focus on inputs, select list, and textarea. */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #2674cb;
+  outline-offset: 2px;
+  background-color: #fff9df;
+}
+
+/* Other keyboard-operable controls also get an obvious focus indicator. */
+input[type="radio"]:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="range"]:focus-visible,
+input[type="color"]:focus-visible,
+input[type="image"]:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2674cb;
+  outline-offset: 3px;
+}
+
+.image-submit {
+  width: 170px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.navigation,
+footer {
+  font-size: 0.95rem;
+}
+
+a {
+  color: #14559c;
+}
+
+footer {
+  margin-top: 24px;
+  color: #566579;
+}
+
+/* Lab 9.2: same fixed-width label column and hover feedback for submit. */
+#request .budget-control {
+  display: inline-flex;
+  width: min(100%, 360px);
+  gap: 12px;
+  align-items: center;
+  vertical-align: top;
+}
+
+#request input[type="range"] {
+  flex: 1;
+  min-width: 100px;
+}
+
+#budget-value {
+  min-width: 58px;
+  font-weight: bold;
+}
+
+#request input[type="color"] {
+  width: 74px;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid #859bb6;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+#request button[type="submit"] {
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #1d5b9e;
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#request button[type="submit"]:hover {
+  background-color: #123f73;
+}
+
+/* Small-screen layout: prevent the label column from squeezing controls. */
+@media (max-width: 610px) {
+  #inquiry,
+  #request {
+    padding: 20px;
+  }
+
+  .form-row > label,
+  .label-spacer {
+    display: block;
+    width: auto;
+    margin: 0 0 5px;
+    text-align: left;
+  }
+
+  .label-spacer {
+    display: none;
+  }
+}

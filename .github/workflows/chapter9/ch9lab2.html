@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Request</title>
+  <link rel="stylesheet" href="ch9lab.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Trip Request</h1>
+
+    <!-- Replace YOUR_EMAIL@example.com with the inbox that should receive requests.
+         FormSubmit will ask you to confirm that inbox after your first submission. -->
+    <form id="request" method="post" action="https://formsubmit.co/YOUR_EMAIL@example.com">
+      <input type="hidden" name="_subject" value="New Trip Request - Chapter 9 Lab 9.2">
+      <input type="hidden" name="_template" value="table">
+
+      <p class="intro">Fill out this form to plan your next trip.</p>
+
+      <div class="form-row">
+        <label for="request-name">Full name:</label>
+        <input type="text" id="request-name" name="full_name" required autocomplete="name">
+      </div>
+
+      <div class="form-row">
+        <label for="request-email">Email:</label>
+        <input type="email" id="request-email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="form-row">
+        <label for="blog">Your travel blog (optional):</label>
+        <input type="url" id="blog" name="travel_blog" placeholder="https://">
+      </div>
+
+      <div class="form-row">
+        <label for="travelers">Number of travelers:</label>
+        <input type="number" id="travelers" name="number_of_travelers" min="1" max="12" value="2">
+      </div>
+
+      <div class="form-row">
+        <label for="departure">Departure date:</label>
+        <input type="date" id="departure" name="departure_date" min="2026-11-10">
+      </div>
+
+      <div class="form-row">
+        <label for="budget">Budget:</label>
+        <span class="budget-control">
+          <input type="range" id="budget" name="budget_usd" min="500" max="5000" step="100" value="2500">
+          <output id="budget-value" for="budget">$2,500</output>
+        </span>
+      </div>
+
+      <div class="form-row">
+        <label for="folder-color">Pick a color for your trip folder:</label>
+        <input type="color" id="folder-color" name="trip_folder_color" value="#2c70b8">
+      </div>
+
+      <div class="form-row">
+        <label for="city">Favorite city:</label>
+        <input type="text" id="city" name="favorite_city" list="city-options" placeholder="Choose or type a city">
+        <datalist id="city-options">
+          <option value="Paris"></option>
+          <option value="Rome"></option>
+          <option value="Tokyo"></option>
+          <option value="Seoul"></option>
+        </datalist>
+      </div>
+
+      <div class="form-row">
+        <label for="postal">ZIP or postal code:</label>
+        <input type="text" id="postal" name="postal_code" pattern="[0-9]{5}(-[0-9]{4})?" title="Enter a 5-digit US ZIP code, or ZIP+4 (example: 37203 or 37203-1234)." placeholder="e.g., 37203" autocomplete="postal-code">
+      </div>
+
+      <div class="form-row submit-row">
+        <span class="label-spacer" aria-hidden="true"></span>
+        <button type="submit">Send Trip Request</button>
+      </div>
+    </form>
+
+    <p class="navigation"><a href="ch9lab1.html">&larr; Back to Lab 9.1</a></p>
+    <footer>
+      <p>Created by Cross | Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+    </footer>
+  </main>
+
+  <script>
+    // Keep the minimum departure date in the future whenever the page is opened.
+    const departure = document.getElementById('departure');
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const minimumDate = tomorrow.getFullYear() + '-' +
+      String(tomorrow.getMonth() + 1).padStart(2, '0') + '-' +
+      String(tomorrow.getDate()).padStart(2, '0');
+    departure.min = minimumDate;
+
+    // Show the current slider amount while keeping its value in the form submission.
+    const budget = document.getElementById('budget');
+    const budgetValue = document.getElementById('budget-value');
+    budget.addEventListener('input', function () {
+      budgetValue.textContent = '$' + Number(budget.value).toLocaleString('en-US');
+    });
+  </script>
+</body>
+</html>

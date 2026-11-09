@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Inquiry</title>
+  <link rel="stylesheet" href="ch9lab.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Plan Your Trip</h1>
+
+    <form id="inquiry" method="post" action="#">
+      <p class="intro">Tell us what kind of trip you have in mind.</p>
+
+      <div class="form-row">
+        <label for="full-name">Full name:</label>
+        <input type="text" id="full-name" name="full_name" accesskey="n" tabindex="1" required autocomplete="name">
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="form-row">
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination">
+          <optgroup label="Europe">
+            <option value="Paris" selected>Paris, France</option>
+            <option value="Rome">Rome, Italy</option>
+          </optgroup>
+          <optgroup label="Asia">
+            <option value="Tokyo">Tokyo, Japan</option>
+            <option value="Seoul">Seoul, South Korea</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Travel style</legend>
+        <div class="choice-row">
+          <input type="radio" id="relaxing" name="travel_style" value="Relaxing" checked>
+          <label for="relaxing">Relaxing</label>
+        </div>
+        <div class="choice-row">
+          <input type="radio" id="adventure" name="travel_style" value="Adventure">
+          <label for="adventure">Adventure</label>
+        </div>
+        <div class="choice-row">
+          <input type="radio" id="sightseeing" name="travel_style" value="Sightseeing">
+          <label for="sightseeing">Sightseeing</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+        <div class="choice-row">
+          <input type="checkbox" id="extra-hotel" name="extras" value="Hotel">
+          <label for="extra-hotel">Hotel booking</label>
+        </div>
+        <div class="choice-row">
+          <input type="checkbox" id="extra-tours" name="extras" value="Tours">
+          <label for="extra-tours">Guided tours</label>
+        </div>
+        <div class="choice-row">
+          <input type="checkbox" id="extra-transport" name="extras" value="Transportation">
+          <label for="extra-transport">Transportation</label>
+        </div>
+      </fieldset>
+
+      <div class="form-row textarea-row">
+        <label for="comments">Questions and comments:</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Tell us about your trip..."></textarea>
+      </div>
+
+      <div class="form-row submit-row">
+        <span class="label-spacer" aria-hidden="true"></span>
+        <input class="image-submit" type="image" src="images/send-button.png" alt="Send your inquiry">
+      </div>
+    </form>
+
+    <p class="navigation"><a href="ch9lab2.html">Go to Lab 9.2 &rarr;</a></p>
+    <footer>
+      <p>Created by Cross | Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>
