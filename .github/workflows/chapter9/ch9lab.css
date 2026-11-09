@@ -1,4 +1,3 @@
-/* Chapter 9 - shared stylesheet for Labs 9.1 and 9.2 */
 * {
   box-sizing: border-box;
 }
@@ -23,7 +22,6 @@ h1 {
   font-size: 2rem;
 }
 
-/* Lab 9.1: form background, padding, width and right-aligned label column */
 #inquiry,
 #request {
   max-width: 700px;
@@ -86,7 +84,6 @@ legend {
   margin: 7px 0;
 }
 
-/* Radio and checkbox labels sit directly beside their controls. */
 fieldset label {
   display: inline-block;
   width: auto;
@@ -96,7 +93,6 @@ fieldset label {
   cursor: pointer;
 }
 
-/* Visible keyboard focus on inputs, select list, and textarea. */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
@@ -109,7 +105,6 @@ textarea:focus {
   background-color: #fff9df;
 }
 
-/* Other keyboard-operable controls also get an obvious focus indicator. */
 input[type="radio"]:focus-visible,
 input[type="checkbox"]:focus-visible,
 input[type="range"]:focus-visible,
@@ -140,7 +135,6 @@ footer {
   color: #566579;
 }
 
-/* Lab 9.2: same fixed-width label column and hover feedback for submit. */
 #request .budget-control {
   display: inline-flex;
   width: min(100%, 360px);
@@ -185,7 +179,6 @@ footer {
   background-color: #123f73;
 }
 
-/* Small-screen layout: prevent the label column from squeezing controls. */
 @media (max-width: 610px) {
   #inquiry,
   #request {
